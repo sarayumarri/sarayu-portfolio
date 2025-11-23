@@ -1,0 +1,57 @@
+:root {
+    /* Warm amber/brown tones */
+    --amber-50: #fef9f3;
+    --amber-100: #fcefd8;
+    --amber-200: #f9dcb0;
+    --amber-400: #f0a848;
+    --amber-600: #d48220;
+    --brown-700: #8b5a2b;
+    --brown-800: #6d441f;
+    --brown-900: #4a2f1a;
+    
+    /* Seafoam blues */
+    --seafoam-50: #f0faf7;
+    --seafoam-100: #d9f2ec;
+    --seafoam-200: #b3e5d9;
+    --seafoam-300: #7dd3c0;
+    --seafoam-400: #4db8a3;
+    --seafoam-600: #2d8f7a;
+    
+    /* Neutrals */
+    --cream: #faf6f1;
+    --warm-white: #fefdfb;
+    --charcoal: #2a2520;
+    
+    /* Typography */
+    --font-display: 'Crimson Pro', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--brown-900);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Selection color */
+  ::selection {
+    background: var(--seafoam-300);
+    color: var(--brown-900);
+  }
