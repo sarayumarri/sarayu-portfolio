@@ -1,74 +1,64 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/Nav';
-import HomePage from './components/Home';
-import AboutPage from './components/About';
-import ExperiencePage from './components/Experience';
-import ProjectsPage from './components/Projects';
+import Home from './components/Home';
+import About from './components/About';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Footer from './components/Footer';
 import PixelHeart from './components/PixelHeart';
+import { useState } from 'react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
   const [darkMode, setDarkMode] = useState(false);
-
+  
   const pages = ['Home', 'About', 'Experience', 'Projects'];
   const pageIndex = pages.indexOf(currentPage);
 
-  // Function to render the correct page
   const renderPage = () => {
     switch(currentPage) {
       case 'Home':
-        return <HomePage darkMode={darkMode} />;
+        return <Home darkMode={darkMode} />;
       case 'About':
-        return <AboutPage darkMode={darkMode} />;
+        return <About darkMode={darkMode} />;
       case 'Experience':
-        return <ExperiencePage darkMode={darkMode} />;
+        return <Experience darkMode={darkMode} />;
       case 'Projects':
-        return <ProjectsPage darkMode={darkMode} />;
+        return <Projects darkMode={darkMode} />;
       default:
         return <HomePage darkMode={darkMode} />;
     }
   };
 
   return (
-    <div style={{
+    <div style={{ 
+      background: 'linear-gradient(135deg, #0a0e27 0%, #1a2a4a 50%, #0a0e27 100%)', 
       minHeight: '100vh',
-      background: darkMode 
-        ? 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f1419 100%)'
-        : 'linear-gradient(135deg, #0a0e27 0%, #1a2a4a 50%, #0a0e27 100%)',
-      position: 'relative',
-      transition: 'background 0.5s ease',
+      display: 'flex',
+      flexDirection: 'column',
+      margin: 0,
+      padding: 0,
     }}>
-      {/* Navigation Bar - Always visible */}
       <Navigation 
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
-
-      {/* Page Content with smooth transitions */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentPage}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          {renderPage()}
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Pixel Heart Progress Indicator at bottom */}
+        
+      <div style={{ flex: 1 }}>
+        {renderPage()}
+      </div>
+      
+      {/* Hearts */}
       <div style={{
-        position: 'fixed',
-        bottom: '2rem',
-        left: '50%',
-        transform: 'translateX(-50%)',
         display: 'flex',
+        justifyContent: 'center',
         gap: '0.5rem',
-        zIndex: 1000,
+        padding: '2rem 0',
+        position: 'sticky',
+        bottom: '0',
+        background: 'linear-gradient(to top, rgba(10, 14, 39, 0.95) 0%, transparent 100%)',
+        backdropFilter: 'blur(10px)',
       }}>
         {pages.map((page, index) => (
           <div 
@@ -80,6 +70,8 @@ function App() {
           </div>
         ))}
       </div>
+      
+      <Footer darkMode={darkMode} />
     </div>
   );
 }

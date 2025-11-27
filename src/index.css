@@ -12,6 +12,13 @@ body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
   background: #0a0e27;
+  margin: 0;
+  padding: 0; 
+}
+
+html {
+  margin: 0;
+  padding: 0;
 }
 
 /* Pixel font utility class */
