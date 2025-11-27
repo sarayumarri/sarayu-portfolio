@@ -1,4 +1,4 @@
-const ProjectsPage = ({ darkMode }) => {
+const ExperiencePage = ({ darkMode }) => {
   return (
     <div style={{
       minHeight: '100vh',
@@ -10,9 +10,9 @@ const ProjectsPage = ({ darkMode }) => {
       fontSize: '2rem',
       fontFamily: '"Press Start 2P", cursive',
     }}>
-      Projects Page - Coming Soon! 🚀
+      Experience Page - Coming Soon! 💼
     </div>
   );
 };
 
-export default ProjectsPage;
+export default ExperiencePage;
