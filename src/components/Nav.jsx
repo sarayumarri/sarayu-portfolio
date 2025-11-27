@@ -116,7 +116,7 @@ const Navigation = ({ currentPage, setCurrentPage, darkMode, setDarkMode }) => {
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
             {/* Resume */}
             <motion.a
-              href="/resume.pdf"
+              href="/images/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -3 }}
