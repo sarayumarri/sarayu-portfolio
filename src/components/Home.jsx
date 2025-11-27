@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import TypingAnimation from './TypingAnimation';
 
 const HomePage = ({ darkMode }) => {
   return (
@@ -9,7 +10,7 @@ const HomePage = ({ darkMode }) => {
       justifyContent: 'center',
       alignItems: 'center',
       padding: '2rem',
-      paddingTop: '8rem',
+      paddingTop: '4rem',
     }}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -38,15 +39,24 @@ const HomePage = ({ darkMode }) => {
           SARAYU MARRI
         </h2>
 
-        <motion.p
+        {/* Typing Animation Component */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <TypingAnimation darkMode={darkMode} />
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
           style={{
             fontFamily: '"Press Start 2P", cursive',
-            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-            color: '#ff6b9d',
-            textShadow: '0 0 10px rgba(255, 107, 157, 0.3)',
+            fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+            color: 'white',
+            marginTop: '2rem',
           }}
         >
           Welcome!

@@ -27,20 +27,29 @@ const Navigation = ({ currentPage, setCurrentPage, darkMode, setDarkMode }) => {
         alignItems: 'center',
       }}>
         
-        {/* Left: Phoenix Logo */}
+        {/* Logo - Metallic Heart */}
         <div 
-          style={{ width: '40px', height: '40px', cursor: 'pointer', flexShrink: 0 }} 
-          onClick={() => {
-            setCurrentPage('Home');
-            setMobileMenuOpen(false);
-          }}
-        >
-          <svg viewBox="0 0 100 100" fill="white">
-            <path d="M50 10 Q60 20 65 35 Q70 50 65 65 Q60 80 50 90 Q40 80 35 65 Q30 50 35 35 Q40 20 50 10 Z" />
-            <circle cx="45" cy="35" r="3" fill="#1a2a4a" />
-            <path d="M30 40 Q25 50 30 60 M70 40 Q75 50 70 60" stroke="white" strokeWidth="2" fill="none" />
-          </svg>
-        </div>
+          style={{ 
+            width: '50px', 
+            height: '50px', 
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }} 
+          onClick={() => setCurrentPage('Home')}
+          >
+
+            <img 
+              src="/images/metalicheart.png" 
+              alt="Logo"
+              style={{
+                width: '45px',
+                height: '45px',
+                objectFit: 'contain',
+              }}
+            />
+          </div>
 
         {/* Desktop Navigation - Hidden on mobile */}
         <div style={{ 
@@ -133,7 +142,7 @@ const Navigation = ({ currentPage, setCurrentPage, darkMode, setDarkMode }) => {
 
             {/* LinkedIn */}
             <motion.a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/sarayumarri/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -3 }}
@@ -158,7 +167,7 @@ const Navigation = ({ currentPage, setCurrentPage, darkMode, setDarkMode }) => {
 
             {/* GitHub */}
             <motion.a
-              href="https://github.com/yourusername"
+              href="https://github.com/sarayumarri"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -3 }}

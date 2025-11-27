@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 // Star Sticker Component
-const StarSticker = ({ x, y, scale, rotation, opacity }) => (
+const StarSticker = ({ x, y, scale, rotation, opacity, imageSrc, size }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity, scale }}
@@ -15,15 +15,15 @@ const StarSticker = ({ x, y, scale, rotation, opacity }) => (
       zIndex: 0,
     }}
   >
-    <svg width="50" height="50" viewBox="0 0 50 50">
-      <circle cx="25" cy="25" r="22" fill="white" opacity="0.9" />
-      <path
-        d="M25 10 L27.5 20 L38 22.5 L27.5 25 L25 35 L22.5 25 L12 22.5 L22.5 20 Z"
-        fill="#FFD700"
-        stroke="#FFA500"
-        strokeWidth="1.5"
-      />
-    </svg>
+    <img 
+      src={imageSrc}
+      alt="star"
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        objectFit: 'contain',
+      }}
+    />
   </motion.div>
 );
 
@@ -43,18 +43,18 @@ const AboutPage = ({ darkMode }) => {
     }
   }, []);
 
-  const scrollProgress = Math.min(scrollY / 300, 1);
+  const scrollProgress = Math.min(scrollY / 200, 1);
 
   // Star positions - they emerge from behind the image
   const stars = [
-    { baseX: -200, baseY: -180, rotation: -25, scale: 0.8 },
-    { baseX: 210, baseY: -170, rotation: 35, scale: 0.9 },
-    { baseX: -180, baseY: 150, rotation: 15, scale: 0.85 },
-    { baseX: 190, baseY: 160, rotation: -40, scale: 0.8 },
-    { baseX: -240, baseY: -50, rotation: 50, scale: 0.75 },
-    { baseX: 230, baseY: 20, rotation: -15, scale: 0.9 },
-    { baseX: 0, baseY: -220, rotation: 25, scale: 0.8 },
-    { baseX: 0, baseY: 220, rotation: -30, scale: 0.85 },
+    { baseX: -220, baseY: -200, rotation: -25, scale: 0.8, size: 75, imageSrc: '/images/buttonheart.png' },
+    { baseX: 230, baseY: -190, rotation: 35, scale: 0.9, size: 70, imageSrc: '/images/metalicheart.png' },
+    { baseX: -210, baseY: 180, rotation: 15, scale: 0.85, size: 80, imageSrc: '/images/patchheart.png' },
+    { baseX: 220, baseY: 185, rotation: -40, scale: 0.8, size: 65, imageSrc: '/images/buttonheart.png' },
+    { baseX: -260, baseY: -60, rotation: 50, scale: 0.75, size: 85, imageSrc: '/images/metalicheart.png' },
+    { baseX: 250, baseY: 25, rotation: -15, scale: 0.9, size: 70, imageSrc: '/images/patchheart.png' },
+    { baseX: 0, baseY: -240, rotation: 25, scale: 0.8, size: 75, imageSrc: '/images/buttonheart.png' },
+    { baseX: 0, baseY: 240, rotation: -30, scale: 0.85, size: 80, imageSrc: '/images/metalicheart.png' },
   ];
 
   return (
@@ -81,7 +81,7 @@ const AboutPage = ({ darkMode }) => {
           
           {/* Left: Circle Image with Stars Behind */}
           <div style={{ position: 'sticky', top: '150px' }}>
-            <div style={{ position: 'relative', width: '100%', paddingTop: '100%' }}>
+            <div style={{ position: 'relative', width: '70%', paddingTop: '70%', marginLeft: '5%', marginRight: 'auto' }}>
               
               {/* Stars behind - emerge as you scroll */}
               {stars.map((star, i) => (
@@ -92,6 +92,8 @@ const AboutPage = ({ darkMode }) => {
                   scale={star.scale * scrollProgress}
                   rotation={star.rotation}
                   opacity={scrollProgress}
+                  imageSrc={star.imageSrc}
+                  size={star.size}
                 />
               ))}
               
@@ -109,20 +111,16 @@ const AboutPage = ({ darkMode }) => {
                 zIndex: 10,
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
               }}>
-                <div style={{
+              <img 
+                src="/images/sarayu.png"
+                alt="Sarayu Marri"
+                style={{
                   width: '100%',
                   height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  fontFamily: '"Press Start 2P", cursive',
-                  textAlign: 'center',
-                  padding: '2rem',
-                }}>
-                  Your<br/>Photo<br/>Here
-                </div>
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
               </div>
             </div>
           </div>
