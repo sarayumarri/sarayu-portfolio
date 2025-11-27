@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = ({ currentPage, setCurrentPage, darkMode, setDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pages = ['Home', 'About', 'Experience', 'Projects'];
+  const pages = ['About', 'Experience', 'Projects'];
   
   return (
     <nav style={{

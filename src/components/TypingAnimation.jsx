@@ -6,7 +6,7 @@ const TypingAnimation = ({ darkMode }) => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const words = ['Software Engineer', 'Developer', 'Designer', 'Student', 'Artist', 'Researcher', 'Storyteller'];
+  const words = ['a Software Engineer', 'a Developer', 'a Designer', 'a Student', 'an Artist', 'a Researcher', 'a Storyteller'];
 
   useEffect(() => {
     const handleType = () => {
@@ -42,7 +42,7 @@ const TypingAnimation = ({ darkMode }) => {
         textShadow: '0 0 10px rgba(255, 107, 157, 0.3)',
         minHeight: '2.5rem',
       }}>
-        I am a {text}
+        I am {text}
         <span style={{
           borderRight: '3px solid #ff6b9d',
           animation: 'blink 0.7s infinite',
